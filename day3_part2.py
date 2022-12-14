@@ -19,5 +19,3 @@ with open("day3_input.txt") as f:
             break
 
 print(priority)
-
-testingPush

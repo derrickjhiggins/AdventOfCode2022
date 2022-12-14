@@ -20,4 +20,4 @@ with open("day3_input.txt") as f:
 
 print(priority)
 
-testing push
+testingPush

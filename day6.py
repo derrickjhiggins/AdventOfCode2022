@@ -1,25 +1,29 @@
-DISTINCT_SEARCH_QUANTITY = 14
-# set search quantity to number of unique characters desired (4 for part1, 14 for part 2)
-
-with open("day6_part1_input.txt") as f:
-    data_packet = f.read()
+def search_string(string, quantity):
+    """Searches input string for desired quantity of unique charactered substring"""
     buffer = []
     index = 0
-    #iterate through data_packet
-    for char in data_packet:
-        # if scanned char is already in buffer, adjust buffer position
+    # iterate through input string
+    for char in string:
         if char in buffer:
+            # if char is already in buffer, adjust buffer position
             buffer = buffer[buffer.index(char) + 1:]
             buffer.append(char)
             index += 1
         else:
             # scanned char is not yet in buffer, so append char
             buffer.append(char)
-            # if buffer length is now 4, buffer is now 4 unique characters, so the search is complete
-            if len(buffer) == 26:
+            # if buffer length is now equal to search quant, the search is complete. Increment and return index
+            if len(buffer) == quantity:
                 index += 1
-                break
-            else: # buffer list is not yet 4 unique characters
+                return index
+            else: # buffer list is not yet 4 unique characters. Increment index and continue search
                 index += 1
 
-print(index)
+# open and read file. Use search string function to find answer index.
+with open("day6_part1_input.txt") as f:
+    data_packet = f.read()
+    search_result1 = search_string(data_packet, 4)
+    search_result2 = search_string(data_packet, 14)
+    search_result3 = search_string(data_packet, 15)
+
+print(search_result1, search_result2, search_result3)

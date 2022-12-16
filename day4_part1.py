@@ -1,6 +1,6 @@
 fully_contained = 0
 
-with open("day4_part1_input.txt") as f:
+with open("day4_input.txt") as f:
     lines = f.readlines()
 
     # for each line in line:

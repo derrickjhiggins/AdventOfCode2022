@@ -20,7 +20,7 @@ stacks = {
 }
 
 with open("day5_part1_input.txt") as f:
-    # skip first lines of text file containing stack schematic
+    # skip first lines of text file which contain stack schematic
     lines = f.readlines()[10:]
     for line in lines:
         # search for integers in each line, storing as instructions list
